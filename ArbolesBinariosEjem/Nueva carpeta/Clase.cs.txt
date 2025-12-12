@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareaObligat0ria
+{
+    internal class Clase
+    {
+        public Asignatura Materia { get; set; }
+        public Docente Profesor { get; set; }
+       
+        public List<Estudiante> EstudiantesInscritos { get; set; }
+
+       
+        public Clase(Asignatura materia, Docente profesor)
+        {
+            Materia = materia;
+            Profesor = profesor;
+            EstudiantesInscritos = new List<Estudiante>();
+        }
+
+        public void AgregarEstudiante(Estudiante estudiante)
+        {
+            EstudiantesInscritos.Add(estudiante);
+            Console.WriteLine($"\nEl estudiante {estudiante.Nombre} {estudiante.Apellidos} ha sido inscrito en la clase de {Materia.Nombre}.");
+        }
+
+        public void ImpartirClase()
+        {
+            Console.WriteLine($"\n--- CLASE IMPARTIDA ---");
+            Console.WriteLine($"Asignatura: **{Materia.Nombre}**");
+            Console.WriteLine($"Impartida por el Docente: **{Profesor.Nombre} {Profesor.Apellidos}**");
+            Console.WriteLine($"\n--- ESTUDIANTES TOMANDO EL CURSO ({EstudiantesInscritos.Count}) ---");
+
+            if (EstudiantesInscritos.Any())
+            {
+                foreach (var estudiante in EstudiantesInscritos)
+                {
+                    Console.WriteLine($"- Matrícula: {estudiante.Matricula}, Nombre: {estudiante.Nombre} {estudiante.Apellidos}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No hay estudiantes inscritos aún.");
+            }
+            Console.WriteLine("-------------------------");
+        }
+    }
+}

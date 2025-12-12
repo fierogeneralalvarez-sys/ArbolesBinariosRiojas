@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareaObligat0ria
+{
+    public class Estudiante : Persona
+    {
+        public string Matricula { get; set; }
+        public string Carrera { get; set; }
+
+        private double Promedio;   
+            public Estudiante(string nombre,string apellidos, string email, string matricula, string carrera, double promedio)
+            : base(nombre, apellidos, email)
+        {
+            Matricula = matricula;
+            Carrera = carrera;
+            Promedio = promedio;
+        }
+        public double ObtenerPromedio()
+        {
+            return Promedio;
+        }
+    }
+}

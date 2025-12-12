@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareaObligat0ria
+{
+    public abstract class Persona
+    {
+        public string Nombre { get; set; }
+        public string Apellidos { get; set; }
+        public string Email { get; set; }
+        public Persona(string nombre, string apellidos, string email)
+        {
+            Nombre = nombre;
+            Apellidos = apellidos;
+            Email = email;
+        }
+        public virtual void MostrarInformacion()
+        {
+            Console.WriteLine($"Nombre: {Nombre} {Apellidos}");
+            Console.WriteLine($"Email: {Email}");
+        }
+    }
+}

@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareaObligat0ria
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("--- CREACIÓN DE INSTANCIAS ---");
+
+            Docente miProfesor = new Docente(
+                "Edgardo",
+                "De La Torre Garcia",
+                "EdgrdTrr@uni.edu",
+                "D-2002",
+                15
+            );
+
+            Estudiante estudiante1 = new Estudiante(
+                "Mary Jose",
+                "Rodriguez Garza",
+                "Majou@est.com",
+                "E-2023001",
+                "Ingeniería de Software",
+                10.00
+            );
+
+            Estudiante estudiante2 = new Estudiante(
+                "Silvia Guadalupe",
+                "Vazquez Gandara",
+                "SlvVzqz@est.com",
+                "E-2023002",
+                "Ingeniería de Software",
+                10.00
+            );
+
+            Estudiante estudiante3 = new Estudiante(
+               "Barbara Michelle",
+               "jimenez Camacho",
+               "BrbJmnzCmch@est.com",
+               "E-2023003",
+               "Ingeniería de Software",
+               9.80
+             );
+
+            Asignatura miAsignatura = new Asignatura(
+                "CS-101",
+                "Programación Orientada a Objetos",
+                4
+            );
+
+            Console.WriteLine("\n--- DETALLES DEL PROFESOR ---");
+            miProfesor.MostrarInformacion();
+
+            Console.WriteLine("\n--- DETALLES DE LA ASIGNATURA ---");
+            miAsignatura.MostrarInformacion();
+
+            Console.WriteLine("\n--- DETALLES DEL ESTUDIANTE 1  ---");
+            estudiante1.MostrarInformacion();
+
+            Console.WriteLine("\n--- DETALLES DEL ESTUDIANTE 3  ---");
+            estudiante2.MostrarInformacion();
+
+            Console.WriteLine("\n--- DETALLES DEL ESTUDIANTE 3 ---");
+            estudiante2.MostrarInformacion();
+
+
+            Clase nuevaClase = new Clase(miAsignatura, miProfesor);
+
+            nuevaClase.AgregarEstudiante(estudiante1);
+            nuevaClase.AgregarEstudiante(estudiante2);
+
+            nuevaClase.ImpartirClase();
+
+            Console.ReadKey();
+
+
+
+
+        }
+    }
+}
+

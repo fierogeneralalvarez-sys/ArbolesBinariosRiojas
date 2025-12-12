@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareaObligat0ria
+{
+    public class Docente : Persona
+    {
+        public string NoDocente { get; set; }
+        public int NumeroHoras { get; set; }
+        private decimal Salario { get; set; }
+        int cHora = 120;
+        public Docente (string nombre, string apellidos, string email, string noDocente, int numeroHoras)
+           : base (nombre, apellidos, email)
+        {
+            NoDocente = noDocente;
+            NumeroHoras = numeroHoras;
+            Salario = cHora * NumeroHoras;
+        }
+        public override void MostrarInformacion()
+        {
+            base.MostrarInformacion();
+            Console.WriteLine($"Número de Docente: {NoDocente}");
+            Console.WriteLine($"Número de Horas: {NumeroHoras}");
+            Console.WriteLine($"Salario: {Salario:C}");
+        }
+        public void ModificarSalario(int thoras)
+        {
+            if (thoras < 10 || thoras > 40)
+            {
+                Console.WriteLine ("Total de horas fuera de rango, sólo puedes elegir entre 10 y 40 horas.");
+            }
+            else
+            {
+                Salario = thoras * cHora;
+                NumeroHoras = thoras;
+            }
+        }
+    }
+
+}
